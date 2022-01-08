@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            /* border: 2px solid red; */
+
+        }
+        body{
+            background: burlywood;
+
+        }
+        .container{
+        height: 100vh;
+            background:url("fireplace.jpg");
+            background-position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+        }
+        .boxsection{
+            width:30%;
+            background:magenta;
+            border-radius:30px;
+            text-align: center;
+            position: relative;
+            
+        }
+        .boxsection a{
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+          
+
+        }
+        .href:hover{
+              color: green;
+              
+        }
+        .href::after{
+            content: '';
+            display:block;
+            background:rgb(108, 247, 154);
+            border:1px solid rgb(136, 243, 136);
+            width: inherit;
+            transform: translate(100%,-50%);
+            border-radius: 9999px;
+            overflow: hidden;
+          animation: myname 2s infinite;
+          transition: all 5s ease;
+
+        }
+     @keyframes myname {
+         0%{width: 0%;}
+        25%, 50%{width: 20%}
+        25%{width:30%}
+        50%, 100%{width:40%}
+         100%,0%{width:30%}
+     }
+     /* inslide line */
+     .insideline{
+         position: absolute;
+         display: flex;
+         color: white;
+         flex-direction: column;
+         background:rgb(108, 247, 154);
+         width: 100%;
+         height: 100vh;
+         gap:100px;
+         
+         /* transform: translate(30%,-30%); */
+     }
+     .heading{
+         width: 100%;
+        background:rgba(0, 0, 139, 0.719);
+     }
+     .navbar{
+         width:100%;
+        
+     }
+     .navbar ul {
+    list-style: none; 
+    display: flex;
+    gap: 20px;
+    }
+   .navbar ul li {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .active, .itms:hover{
+        background: blueviolet;
+    }
+    .searchbar{
+        background: wheat;
+        position: relative;
+        margin: 2px;
+        border-radius: 999px;
+        align-items: center;
+        transition: all 0.9s;
+       width: 0px;
+    }
+    .searchbox{
+    left:0px;
+     display: flex;
+     width: inherit;
+     
+     
+    }
+    input[type=text]{
+   
+         width:90%; 
+        background: inherit;
+        border-radius: 999px;
+        border-collapse: collapse;
+        border: none;
+    }
+    .searchbar.active{
+        width:100%;
+    }
+    </style>
+</head>
+<body>
+<div class = "heading">
+
+    <div class = "navbar">
+        <ul class = "uls">
+            <li class = "itms active">HOME</li>
+            <li class ="itms">VALUEs</li> 
+            <li class = "itms">TEXT</li>
+        </ul>
+    </div>
+<div class = "container">
+
+<div class = "boxsection">
+    <a href= "#"  class="href">Click!</a>
+</div>
+ <div class = "insideline">
+     <div class = "imgs1">
+        <img src = "field.jpg" alt = "filed"  width="200px">
+        <p>Lorem ipsum dolor sit amet consectetur, <br>adipisicing elit. Incidunt beatae porro eveniet consequuntur, eum alias excepturi quod, <br>obcaecati debitis hic explicabo aut itaque in exercitationem minima maiores <br>distinctio soluta ab?</p>
+     </div>
+     <div class = "imgs1">
+        <img src = "field.jpg" alt = "filed"  width= "200px">
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Doloremque tempore vel iure, <br>amet tempora nostrum quam accusamus reiciendis odit adipisci incidunt quae voluptate,<br> impedit dicta asperiores laudantium quod magni laborum.</p>
+     </div>
+ </div>
+</div>
+<div class = "searchbar">
+    <div class = "searchbox" >
+        <img id = "googleicon" src = "google.png" alt = "saas" width= "30px">
+  <input type="text" placeholder="adsdd">
+    </div>
+</div>
+</div>
+<script>
+    let dis = document.querySelector('.insideline')
+    let hrf = document.querySelector('.href')
+     dis.style.display = 'none'
+    hrf.onclick= function (){
+        dis.style.display = "block";
+    }  
+
+
+
+
+
+</script>
+<script>
+    let hd = document.getElementsByClassName("navbar")
+let uld=document.getElementsByClassName('itms') ;
+for( var i =0; i < uld.length; i++){
+uld[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active")
+ console.log(current[0].className = current[0].className .replace("active",''));
+// current[0].className= current[0].className.replace('active', " ")
+     this.className += 'active';
+});
+}
+</script>
+<script>
+    let searchbox= document.querySelector(".searchbar")
+     
+    let icon = document.getElementById("googleicon");
+    icon.onclick = function(){
+      searchbox.classList.toggle('active')
+    }
+</script>
+</body>
+</html>
