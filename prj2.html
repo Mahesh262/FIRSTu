@@ -1,201 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>WebJ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        *{
-            padding: 0px;
+        * {
             margin: 0px;
+            padding: 0px;
             box-sizing: border-box;
-            /* border: 2px solid red; */
 
         }
-        body{
-            background: burlywood;
+
+        body {
+            background: linear-gradient(rgba(0, 128, 0, 0.633), rgba(255, 0, 0, 0.29) rgba(255, 166, 0, 0.571));
 
         }
-        .container{
-        height: 100vh;
-            background:url("fireplace.jpg");
-            background-position: relative;
+
+        .navibar {
+            background: rgb(238, 189, 141);
+        }
+
+        .nav {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav li {
+            background: rgb(237, 191, 144);
+        }
+
+        .container {
+
+            width: 100%;
+            height: 100vh;
+            background-color: linear-gradient(rgba(0, 128, 0, 0.633), rgba(255, 0, 0, 0.29) rgba(255, 166, 0, 0.571));
+
+
+        }
+
+        .menusection {
+            background: url("swan.jpg");
+            width: 100%;
+            height: 100vh;
             background-size: cover;
-            background-repeat: no-repeat;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-        }
-        .boxsection{
-            width:30%;
-            background:magenta;
-            border-radius:30px;
+            background-position: center;
             text-align: center;
-            position: relative;
-            
-        }
-        .boxsection a{
-            text-decoration: none;
-            color: white;
-            font-size: 30px;
-            text-align: center;
-          
 
         }
-        .href:hover{
-              color: green;
-              
+
+        .menusection p {
+            transform: translate(0%, 240%);
+            color: #0e4743;
+
         }
-        .href::after{
-            content: '';
-            display:block;
-            background:rgb(108, 247, 154);
-            border:1px solid rgb(136, 243, 136);
+
+        .backsection {
+            display: flex;
+            background-color: cornsilk;
+            /* border: 2px solid green; */
+            border-radius: 999px;
+            width: 0px;
+            transition: all 0.5s;
+
+        }
+
+        .backsection.active {
+            width: 70%;
+        }
+
+        input[type=text] {
             width: inherit;
-            transform: translate(100%,-50%);
-            border-radius: 9999px;
-            overflow: hidden;
-          animation: myname 2s infinite;
-          transition: all 5s ease;
+            border-radius: inherit;
+            border-style: none;
+            border-collapse: collapse;
 
         }
-     @keyframes myname {
-         0%{width: 0%;}
-        25%, 50%{width: 20%}
-        25%{width:30%}
-        50%, 100%{width:40%}
-         100%,0%{width:30%}
-     }
-     /* inslide line */
-     .insideline{
-         position: absolute;
-         display: flex;
-         color: white;
-         flex-direction: column;
-         background:rgb(108, 247, 154);
-         width: 100%;
-         height: 100vh;
-         gap:100px;
-         
-         /* transform: translate(30%,-30%); */
-     }
-     .heading{
-         width: 100%;
-        background:rgba(0, 0, 139, 0.719);
-     }
-     .navbar{
-         width:100%;
-        
-     }
-     .navbar ul {
-    list-style: none; 
-    display: flex;
-    gap: 20px;
-    }
-   .navbar ul li {
-        display: flex;
-        flex-direction: row;
-        
-    }
-    .active, .itms:hover{
-        background: blueviolet;
-    }
-    .searchbar{
-        background: wheat;
-        position: relative;
-        margin: 2px;
-        border-radius: 999px;
-        align-items: center;
-        transition: all 0.9s;
-       width: 0px;
-    }
-    .searchbox{
-    left:0px;
-     display: flex;
-     width: inherit;
-     
-     
-    }
-    input[type=text]{
-   
-         width:90%; 
-        background: inherit;
-        border-radius: 999px;
-        border-collapse: collapse;
-        border: none;
-    }
-    .searchbar.active{
-        width:100%;
-    }
+
+        .mnav {
+            position: fixed;
+
+            width: 300px;
+
+
+        }
+
+        .mv1 li {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+
+
+        }
+
+        .imagessection {
+            width: 100%;
+            height: 100vh;
+            padding-top: 10px;
+            background: khaki;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .imagebody {
+            width: 33.5%;
+            border: 2px solid green;
+            overflow: hidden;
+            backdrop-filter: inherit;
+            position: relative;
+            display: flex;
+            height: 50%;
+
+        }
+
+        .im1 img {
+
+            height: 110%;
+            width: 100%;
+            background-size: cover;
+
+
+
+        }
+
+        .todo {
+            background: wheat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .todo ul {
+            padding-top: 10px;
+        }
+
+        .options {
+            /* display: flex; */
+
+            border: 2px solid green;
+            width: 350px;
+            gap: 10px;
+            border-radius: 999px;
+            background: rgba(245, 222, 179, 0.589);
+
+
+        }
+
+        .tolist {
+            background: rgba(64, 224, 208, 0.637);
+            border: 2px solid pink;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+
+
+        }
+
+        .bora {
+            transition: 0.5s ease-in;
+            transition: all 0.5s;
+            animation: myani;
+            animation-duration: 1s;
+        }
+
+        .opt {
+            transition: all 0.5s;
+            animation: myani;
+            animation-duration: 1s;
+        }
+
+        @keyframes myani {
+            50% {
+                transition: 0.5s;
+            }
+
+        }
+
+        .menulis {
+            width: 350px;
+            /* border: 2px solid red; */
+            display: flex;
+            border: 2px solid rgba(255, 251, 0, 0.63);
+            justify-content: space-between;
+            border-radius: 999px;
+
+        }
+
+        /* .bora:hover { */
+        /* transform: rotateX(180deg)
+        } */
+
+        /* .imagebody::after {
+            content: "";
+            display: flex;
+            border: 2px solid red;
+            width: 100%;
+            transition: all 0.5s;
+        } */
+        .options {
+            list-style: none;
+        }
+
+        .options:hover {
+            background: rgba(221, 14, 221, 0.534)
+        }
     </style>
 </head>
+
 <body>
-<div class = "heading">
+    <div class="container">
+        <div class="navibar">
+            <div class="navlist">
+                <ul class="nav">
+                    <li id="home">HOME
+                        <div class="mnav">
+                            <ul class="mv1">
+                                <li>hhh</li>
+                                <li>hhh</li>
+                                <li>hhh</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Serivces</li>
+                    <li>About</li>
 
-    <div class = "navbar">
-        <ul class = "uls">
-            <li class = "itms active">HOME</li>
-            <li class ="itms">VALUEs</li> 
-            <li class = "itms">TEXT</li>
-        </ul>
+                </ul>
+            </div>
+            <div class="menusection">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, voluptate sapiente dolorem
+                    voluptates hic illum unde temporibus, atque vitae qui quibusdam<br> saepe rem nulla voluptas
+                    incidunt nesciunt consectetur neque culpa.</p>
+                <div class="backsection">
+
+                    <img id="googleicon" src="google.png" alt="gole" width="25px">
+                    <input type="text" placeholder="enter url">
+                </div>
+            </div>
+
+        </div>
+        <div class="imagessection">
+            <div class="imagebody">
+                <div class="im1">
+                    <img src="laptop.jpg" alt=" ap">
+                </div>
+            </div>
+            <div class="imagebody">
+                <div class="im1">
+                    <img src="laptop.jpg" alt="ap1">
+                    <p> on board</p>
+                </div>
+            </div>
+            <div class="imagebody">
+                <div class="im1">
+                    <img src="laptop.jpg" alt=" ap">
+                </div>
+            </div>
+        </div>
+        <div class="todo">
+            <div class="tolist">
+
+                <div class="menulis" id="menui">
+                    <p id="selecttext"> welcome</p>
+                    <div class="bora">
+                        <i id="icons" class="fa fa-chevron-down"></i></div>
+                </div>
+
+            </div>
+            <ul id='opt'>
+                <li class="options" id="ops">facebook
+                    <i class='fa fa-search'></i>
+                </li>
+                <li class="options" id="ops">REDDIT</li>
+                <li class="options" id="ops">INSTAGRAM</li>
+                <li class="options" id="ops">WHATSAPP</li>
+                <li class="options" id="ops">TWITTER</li>
+
+            </ul>
+        </div>
     </div>
-<div class = "container">
-
-<div class = "boxsection">
-    <a href= "#"  class="href">Click!</a>
-</div>
- <div class = "insideline">
-     <div class = "imgs1">
-        <img src = "field.jpg" alt = "filed"  width="200px">
-        <p>Lorem ipsum dolor sit amet consectetur, <br>adipisicing elit. Incidunt beatae porro eveniet consequuntur, eum alias excepturi quod, <br>obcaecati debitis hic explicabo aut itaque in exercitationem minima maiores <br>distinctio soluta ab?</p>
-     </div>
-     <div class = "imgs1">
-        <img src = "field.jpg" alt = "filed"  width= "200px">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Doloremque tempore vel iure, <br>amet tempora nostrum quam accusamus reiciendis odit adipisci incidunt quae voluptate,<br> impedit dicta asperiores laudantium quod magni laborum.</p>
-     </div>
- </div>
-</div>
-<div class = "searchbar">
-    <div class = "searchbox" >
-        <img id = "googleicon" src = "google.png" alt = "saas" width= "30px">
-  <input type="text" placeholder="adsdd">
     </div>
-</div>
-</div>
-<script>
-    let dis = document.querySelector('.insideline')
-    let hrf = document.querySelector('.href')
-     dis.style.display = 'none'
-    hrf.onclick= function (){
-        dis.style.display = "block";
-    }  
+
+    <script>
+        let bs = document.querySelector(".backsection")
+        let ion = document.getElementById('googleicon')
+        ion.onclick = function () {
+            bs.classList.toggle('active')
+        }
+    </script>
+    <script>
+        let hms = document.getElementById("home")
+        let mna = document.querySelector('.mnav')
+        mna.style.display = 'none'
+        hms.onclick = (function () {
+            if (mna.style.display === "none") {
+                mna.style.display = "block"
+
+            } else {
+                mna.style.display = "none"
+            }
+
+        })
+    </script>
+    <script>
+        let bora = document.getElementById("icons")
+        let opti = document.getElementById("opt")
+        opti.style.display = "none"
+        bora.onclick = function () {
+            if (opti.style.display == 'none') {
+                opti.style.display = "block"
+                bora.style.transform = "rotate(180deg)"
+
+            } else {
+                opti.style.display = "none"
+                bora.style.transform = "rotate(0deg)"
+            }
+        }
+    </script>
+
+    <script>
+        let menuis = document.getElementById('menui')
+        let selecttext = document.getElementById("selecttext")
+        let optns = document.getElementById('ops')
+
+        for (optns of ops) {
+            optns.onclick = function () {
+                selecttext.innerHTML = this.textContent
+
+            }
 
 
-
-
-
-</script>
-<script>
-    let hd = document.getElementsByClassName("navbar")
-let uld=document.getElementsByClassName('itms') ;
-for( var i =0; i < uld.length; i++){
-uld[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active")
- console.log(current[0].className = current[0].className .replace("active",''));
-// current[0].className= current[0].className.replace('active', " ")
-     this.className += 'active';
-});
-}
-</script>
-<script>
-    let searchbox= document.querySelector(".searchbar")
-     
-    let icon = document.getElementById("googleicon");
-    icon.onclick = function(){
-      searchbox.classList.toggle('active')
-    }
-</script>
+        }
+    </script>
 </body>
+
 </html>
